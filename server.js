@@ -35,7 +35,7 @@ app.get('/',(req,res)=>{
 })
 
 
-mongoose.connect(`mongodb+srv://${process.env.dbUsername}:${process.env.dbPassword}@cluster0-wkjzn.mongodb.net/test?retryWrites=true&w=majority"
+mongoose.connect(`mongodb+srv://${process.env.dbUsername}:${process.env.dbPassword}@cluster0-wkjzn.mongodb.net/test?retryWrites=true&w=majority`
 ,{useUnifiedTopology: true, useNewUrlParser: true });
 
 const db = mongoose.connection;
