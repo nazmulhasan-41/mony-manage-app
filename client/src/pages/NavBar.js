@@ -2,14 +2,21 @@ import React, { Component } from 'react';
 import {Link} from 'react-router-dom';
 import {connect} from 'react-redux';
 import {logout} from '../store/actions/authActions';
+import history from './history'
+
+import { Route , withRouter} from 'react-router-dom';
+
+
+
 
 class NavBar extends Component {
 
   submithandler=event=>{
     event.preventDefault();  
-    //console.log("+++++++++++++++++++++");
 
-    this.props.logout(this.props.history);
+    console.log("in call---------------",history);
+
+    this.props.logout(history);
   }
 
     render() {
@@ -30,9 +37,7 @@ class NavBar extends Component {
       <li className="nav-item ">
         <Link className="nav-link" to="/">Home <span className="sr-only">(current)</span></Link>
       </li>
-      <li className="nav-item">
-        <Link className="nav-link" to="/register">Register</Link>
-      </li>
+      
 
       {
       this.props.auth.user.name ?
@@ -42,6 +47,19 @@ class NavBar extends Component {
 </li>:
 <div> </div>
     }
+
+{
+      this.props.auth.user.name ?
+
+      <li className="nav-item">
+        <Link className="nav-link" to="/gift">Gift</Link>
+      </li>
+      :
+<div> </div>
+    }
+
+
+
 
       {
       this.props.auth.user.name ?
@@ -60,7 +78,11 @@ class NavBar extends Component {
   } 
 
       
+<li className="nav-item">
+        <Link className="nav-link" to="/register">Register</Link>
+      </li>
 
+      
       <li className="nav-item dropdown">
         <a className="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
           Dropdown

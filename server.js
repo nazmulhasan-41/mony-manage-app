@@ -4,9 +4,6 @@ const cors=require('cors');
 const bodyParser=require('body-parser');
 const mongoose=require('mongoose');
 const path= require('path');
-//const userRouter=require('./routers/userRouter');
-
-
 const app =express();
 
 app.use(morgan('dev'));
@@ -27,15 +24,17 @@ if(process.env.NODE_ENV==='production')
     })
 }
 
-
 app.get('/',(req,res)=>{
     res.json({
         message:"Welcome jewel"
     })
 })
 
-
+/* //at deploying stage
 mongoose.connect(`mongodb+srv://${process.env.dbUsername}:${process.env.dbPassword}@cluster0-wkjzn.mongodb.net/test?retryWrites=true&w=majority`
+,{useUnifiedTopology: true, useNewUrlParser: true });
+ */
+mongoose.connect("mongodb+srv://jewel41:jewel41@cluster0-wkjzn.mongodb.net/test?retryWrites=true&w=majority"
 ,{useUnifiedTopology: true, useNewUrlParser: true });
 
 const db = mongoose.connection;
@@ -45,8 +44,6 @@ db.once('open', function() {
 console.log("Hello******* we are connected")
 
 });
-
-
 const PORT=process.env.PORT || 4000;
 
 app.listen(PORT,()=>{

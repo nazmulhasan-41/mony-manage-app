@@ -10,10 +10,8 @@ import NavBar from './pages/NavBar';
 
 import Dashboard from './pages/Dashboard';
 
-
-
-import { Router } from 'react-router-dom';
 import history from './pages/history';
+import Gift from './pages/Gift';
 
 
 
@@ -21,13 +19,16 @@ function App() {
   return (
     <BrowserRouter history={history}>
 
-    <NavBar/>
+    <NavBar />
     <div className="container">
       <Switch>
         <Route path='/' exact component={Home}></Route>
         <Route path='/login'  component={Login}></Route>
         <Route path='/register'  component={Register}></Route>
         <Route path='/dashboard'  component={Dashboard}></Route>
+        <Route path='/gift'  component={Gift}></Route>
+        <Route path='/navbar' component={NavBar}></Route>
+
       </Switch>
      
     </div>

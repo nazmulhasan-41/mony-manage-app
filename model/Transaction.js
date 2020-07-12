@@ -17,7 +17,14 @@ const TransactionSchema=new Schema({
     author:{
         type: Schema.Types.ObjectId,
         ref:'User'
+    },
+    from:{
+        type:String
+    },
+    to:{
+        type:String
     }
+
 
 },{timestamps: true})
 

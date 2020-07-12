@@ -66,12 +66,11 @@ router.post('/login',(req,res)=>{
 })
 
 router.get('/allUsers',(req,res)=>{
-
     
 
     User.find()
         .then(user=>{
-            
+            console.log("**************");
              res.json(user)
             }
         )

@@ -50,15 +50,28 @@ export const login=(user,history)=>dispatch=>{
 export const logout=(history)=>dispatch=>{
      localStorage.removeItem('userBackUp');
      localStorage.clear();
-     //history.push('/')
+     console.log("--------history-----",history);
 
-            dispatch({
-                type:Types.SET_USER,
+     
+
+    dispatch({
+             type:Types.SET_USER,
                 payload:{
                     user:{}
                 }
                
             })
+
+            dispatch({
+                type:Types.LOAD_TRANSACTIONS,
+                   payload:{
+                       transactions:{}
+                   }
+                  
+               })
+
+
+            history.push('/');
            
 }
 
