@@ -30,12 +30,12 @@ app.get('/',(req,res)=>{
     })
 })
 
-/* //at deploying stage
+//at deploying stage
 mongoose.connect(`mongodb+srv://${process.env.dbUsername}:${process.env.dbPassword}@cluster0-wkjzn.mongodb.net/test?retryWrites=true&w=majority`
 ,{useUnifiedTopology: true, useNewUrlParser: true });
- */
-mongoose.connect("mongodb+srv://jewel41:jewel41@cluster0-wkjzn.mongodb.net/test?retryWrites=true&w=majority"
-,{useUnifiedTopology: true, useNewUrlParser: true });
+
+/* mongoose.connect("mongodb+srv://jewel41:jewel41@cluster0-wkjzn.mongodb.net/test?retryWrites=true&w=majority"
+,{useUnifiedTopology: true, useNewUrlParser: true }); */
 
 const db = mongoose.connection;
 db.on('error', console.error.bind(console, 'connection error:'));
