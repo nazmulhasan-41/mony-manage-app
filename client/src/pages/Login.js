@@ -4,7 +4,6 @@ import { login } from '../store/actions/authActions';
 
 class Login extends Component {
   state = {
-
     email: '',
     password: ''
 

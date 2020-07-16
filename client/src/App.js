@@ -14,20 +14,22 @@ import history from './pages/history';
 import Gift from './pages/Gift';
 
 
-
 function App() {
   return (
-    <BrowserRouter history={history}>
+    <BrowserRouter histo={history}>
 
-    <NavBar />
+    <NavBar histo={history}/>
     <div className="container">
-      <Switch>
+
+      
+      <Switch  >
         <Route path='/' exact component={Home}></Route>
         <Route path='/login'  component={Login}></Route>
         <Route path='/register'  component={Register}></Route>
         <Route path='/dashboard'  component={Dashboard}></Route>
         <Route path='/gift'  component={Gift}></Route>
         <Route path='/navbar' component={NavBar}></Route>
+        
 
       </Switch>
      

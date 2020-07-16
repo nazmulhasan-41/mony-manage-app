@@ -29,7 +29,7 @@ class TransactionAdd extends Component {
 
   handleChange = (event) => {
     this.setState({ type: event.target.value });
-    
+
   }
 
 
@@ -68,35 +68,22 @@ class TransactionAdd extends Component {
     return (
       <div>
 
-        <button type="button" class="btn btn-secondary btn-sm" data-toggle="modal" data-target="#exampleModal">
- 
-          ADD Your Expense    <SendIcon/> 
-</button>
+        <div>
 
+          <p>
 
-
-<div class="container">
- 
-
-
-
-
-
-        <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-          <div class="modal-dialog" role="document">
-            <div class="modal-content">
-              <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                  <span aria-hidden="true">&times;</span>
-                </button>
-              </div>
+            <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#collapseExample2" aria-expanded="false" aria-controls="collapseExample2">
+              Add Expense<SendIcon />
+            </button>
+          </p>
+          <div class="collapse" id="collapseExample2">
+            <div class="card card-body">
 
 
               <form onSubmit={this.submitTransButton}>
 
                 <div class="form-group">
-                  <label for="exampleInputEmail1">amount</label>
+                  <label for="exampleInputEmail1">Amount</label>
                   <input type="name" className="form-control" name='amount' id="amount"
 
                     onChange={this.changeHandler2}
@@ -104,56 +91,28 @@ class TransactionAdd extends Component {
                   <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
                 </div>
 
-                <div class="form-group">
 
 
-                  <div class="input-group mb-3">
-
-                    <select value={this.state.value} onChange={this.handleChange} class="custom-select" id="inputGroupSelect01">
-                      <option selected>Type</option>
-                      <option value="income"
-                        name='type'
-                      >income</option>
-                      <option value="expense"
-                        name='type'
-                      >expense</option>
-
-                    </select>
-                  </div>
-
-
+                <div class="input-group mb-3">
+                  <select value={this.state.value} onChange={this.handleChange} class="custom-select" id="inputGroupSelect01">
+                    <option selected>Type</option>
+                    <option value="income"
+                      name='type'
+                    >income</option>
+                    <option value="expense"
+                      name='type'
+                    >expense</option>
+                  </select>
                 </div>
-
-                <div class="form-group">
-                  <label for="exampleInputPassword1">note</label>
-                  <input type="name" class="form-control" id="note"
-                    name='note'
-                    onChange={this.changeHandler2}
-                  />
-                </div>
-
 
                 <button type="submit" class="btn btn-primary"
                   onSubmit={this.submitTransButton}
                 /* data-dismiss="modal" */
-                >Submit</button>
+                >Add</button>
               </form>
-
-
-
-
-              <div class="modal-footer">
-                <button type="button" class="btn btn-secondary"
-                 data-dismiss="modal">Close</button>
-              </div>
             </div>
           </div>
         </div>
-
-        
-</div>
-
-
       </div>
     );
   }

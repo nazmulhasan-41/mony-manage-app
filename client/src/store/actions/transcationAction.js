@@ -23,8 +23,6 @@ export const loadTransactions=()=>dispatch=>{
                     user:res.data.reqUser
                 }
             })
-
-            
          })
         .catch(error=>{
             console.log("------------->in transaction error",error);
@@ -44,15 +42,13 @@ export const addTransactions=(transaction,history)=>dispatch=>{
                     transaction : res.data
                 }
             })
-
             dispatch({
                 type:Types.SET_USER,
                 payload:{
                     user:res.data.returnedUser
                 }
             })
-            history.push('/');
-            
+           // history.push('/');
          })
         .catch(error=>{
             console.log("------------->in transaction :",error);
@@ -101,8 +97,6 @@ export const deleteTransaction =_id=>dispatch=>{
                 id : res.data.x
             }
         })
-        
-
      })
     .catch(error=>{
         console.log("------------->in delete transaction error",error);

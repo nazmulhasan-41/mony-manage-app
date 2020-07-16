@@ -3,17 +3,13 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
-
 import {Provider} from 'react-redux';
 import store from './store';
-
 import * as Types from './store/actions/types';
 import history from './pages/history'
 
-
 const user=JSON.parse(localStorage.getItem('userBackUp'));
 if(user){
-  
   store.dispatch({
     type: Types.SET_USER,
     payload:{
@@ -24,7 +20,7 @@ if(user){
 ReactDOM.render(
   
   <React.StrictMode>
-    <Provider store={store} history={history} >
+    <Provider  store={store} history={history}  >
     <App />
     </Provider>
   </React.StrictMode>,

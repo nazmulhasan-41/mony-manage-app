@@ -2,10 +2,10 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { login } from '../store/actions/authActions';
 import { loadTransactions, deleteTransaction } from '../store/actions/transcationAction';
-import TransactionAdd from './TransactionAdd';
-
-import history from './history'
 import SendMoney from './SendMoney';
+import { Redirect } from 'react-router';
+
+import Login from './Login';
 
 class Gift extends Component {
   state = {
@@ -15,33 +15,42 @@ class Gift extends Component {
   }
 
   componentDidMount() {
-    this.props.loadTransactions();
-  }
+
+        this.props.loadTransactions();
+      }
+
+    
 
   render() {
     let { auth, transactions } = this.props
     return (
       <div>
 
+        {
+          JSON.parse(localStorage.getItem('logBackUp')) ?
+          <Redirect to='/' />
+          :
 
-        <div class="jumbotron jumbotron-fluid">
+
+
+<div>
+
+          <div class="jumbotron jumbotron-fluid">
           <div class="container">
             <h1 class="display-4">{auth.user.email}</h1>
             <p class="lead"> Balance: ${this.props.auth.user.balance}</p>
-            <p class="lead">  {transactions.length}</p>
+            
           </div>
         </div>
 
 
         <div class="container">
           <div class="row">
-
-
             <div class="col-sm">
 
               <nav class="navbar navbar-dark bg-primary">
                 Sent
-</nav>
+              </nav>
 
               <table class="table">
                 <thead class="thead-dark">
@@ -53,12 +62,10 @@ class Gift extends Component {
                   </tr>
                 </thead>
                 <tbody>
-                  {transactions.length}
-                  {console.log(transactions.length === undefined)}
 
                   {transactions.length === undefined ?
-                  <h1></h1>
-                  :
+                    <h1></h1>
+                    :
                     transactions.map((t) => (
                       t.type === 'sent' ?
                         <tr>
@@ -71,7 +78,7 @@ class Gift extends Component {
                         :
                         <h1></h1>
                     ))
-                    
+
                   }
 
                 </tbody>
@@ -127,6 +134,20 @@ class Gift extends Component {
 
           </div>
         </div>
+
+
+</div>
+
+
+
+
+
+
+          
+          
+        }
+
+        
 
 
       </div>

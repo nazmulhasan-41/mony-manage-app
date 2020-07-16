@@ -7,8 +7,6 @@ const init={
 }
 
 const authReducer=(state=init,action)=>{
-
-
     switch (action.type){
         case Types.SET_USER:{
             return {
